@@ -15,20 +15,45 @@
 ## 安装说明
 
 1. 确保已安装 Python 3.8+
+2. 安装 [uv](https://github.com/astral-sh/uv)（如果尚未安装）：
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+   或使用 pip：
+   ```bash
+   pip install uv
+   ```
 
-2. 安装依赖：
-```bash
-pip install -r requirements.txt
-```
+3. 使用 uv 创建虚拟环境并安装依赖：
+   ```bash
+   uv venv
+   source .venv/bin/activate  # 在 macOS/Linux 上
+   # 或
+   .venv\Scripts\activate  # 在 Windows 上
+   uv pip install -r requirements.txt
+   ```
+
+   或者直接使用 uv 运行（无需手动激活环境）：
+   ```bash
+   uv venv
+   uv pip install -r requirements.txt
+   ```
 
 ## 使用方法
 
 1. 确保 `BOSS数据统计.xlsx` 文件在项目根目录下
 
 2. 运行应用：
-```bash
-streamlit run app.py
-```
+   ```bash
+   # 激活虚拟环境后运行：
+   source .venv/bin/activate  # macOS/Linux
+   # 或
+   .venv\Scripts\activate  # Windows
+   streamlit run app.py
+   
+   # 或者使用 uv 直接运行（如果已安装依赖）：
+   uv run streamlit run app.py
+   ```
 
 3. 在浏览器中打开显示的地址（通常是 http://localhost:8501）
 
@@ -101,6 +126,30 @@ boss-data-visualization/
 - ✅ **兼容性**：支持12列（无补刀次数）和13列（有补刀次数）两种结构
 
 详细说明请查看 [recommended_excel_structure.md](recommended_excel_structure.md)
+
+## 依赖管理
+
+本项目使用 [uv](https://github.com/astral-sh/uv) 进行依赖管理。
+
+### 添加新依赖
+```bash
+uv add package-name
+```
+
+### 移除依赖
+```bash
+uv remove package-name
+```
+
+### 更新依赖
+```bash
+uv sync --upgrade
+```
+
+### 查看依赖
+```bash
+uv pip list
+```
 
 ## 开发说明
 

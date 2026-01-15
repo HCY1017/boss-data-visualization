@@ -1,0 +1,13 @@
+[project]
+name = "boss-data-visualization"
+version = "1.0.0"
+description = "一个交互式数据可视化工具，用于分析和对比两位用户的每日运营数据"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "streamlit>=1.30.0",
+    "pandas>=2.0.0",
+    "plotly>=5.18.0",
+    "openpyxl>=3.1.0",
+    "kaleido>=0.2.1",
+]

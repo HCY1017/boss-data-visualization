@@ -31,6 +31,9 @@ env.bak/
 venv.bak/
 .venv/
 
+# uv
+.uv/
+
 # PyCharm
 .idea/
 
